@@ -1,14 +1,14 @@
 ---
 - 
-  hosts: target_hosts
+  hosts: mcbe_hosts
   become: true
   become_method: sudo
   vars:
     mc_home: "/opt/MC"
     backup_dir: "~mc/backup_dir"
-    # Please change here if you want to run multiple mcbe server in one Linux machine.
+    # Please change below 2 lines if you want to run multiple mcbe server in one Linux machine.
     server_arg: "MCBE"
-    mc_port: 27272
+    mc_port: 19132
   
   tasks:
     - name: upgrade
