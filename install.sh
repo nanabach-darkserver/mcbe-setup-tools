@@ -1,3 +1,17 @@
+echo '-----------------------------------------'
+echo "統合版サーバーのインストール前に以下の規約やプライバシーポリシーに同意する必要があります。"
+echo "https://account.mojang.com/terms"
+echo "https://privacy.microsoft.com/ja-jp/privacystatement"
+echo
+echo "同意しますか: y/n"
+echo "(中断して規約を確認する場合は、nを入力)" 
+read is_agree
+
+if [[ $is_agree != 'y' ]]; then
+    exit 0
+fi
+
+echo '-----------------------------------------'
 echo "必要ソフトウェアをインストールします"
 sudo apt install ansible sshpass
 
@@ -25,7 +39,7 @@ fi
 
 echo '-----------------------------------------'
 echo "SSHアクセス方法の選択"
-echo "インストールするサーバーには公開鍵認証を設定済みかつ、.ssh/configを設定済み: y"
+echo "公開鍵認証でSSHログイン（.ssh/configを設定済み）: y"
 echo ".ssh/config未設定でパスワード認証: n"
 echo "キャンセル: cか何か"
 read is_pka
