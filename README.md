@@ -1,6 +1,6 @@
 # README #
 
-マインクラフト統合版サーバーをできるだけかんたんにインストールするスクリプト。  
+マインクラフト統合版サーバーをできるだけ簡単にインストールするスクリプト。  
 マインクラフト統合版サーバー本体だけでなく、  
 
 * マインクラフトサーバーをsystemctlで起動・停止する機能  
@@ -10,14 +10,13 @@
 
 がインストールできます。  
 
-なお統合版サーバーのインストール前に以下の規約やプライバシーポリシーに同意する必要があります。  
+統合版サーバーのインストール前に以下の規約やプライバシーポリシーに同意する必要があります。  
 必ずチェックしてください。  
 
 https://account.mojang.com/terms  
 https://privacy.microsoft.com/ja-jp/privacystatement  
 
-なお、このスクリプトはMinecraft公式のものではありません。  
-このスクリプトについて公式に問い合わせても無駄です。  
+なお、このスクリプトはMinecraft公式のものではありません。    
 
 ## 想定環境 ###
 
@@ -39,7 +38,7 @@ https://privacy.microsoft.com/ja-jp/privacystatement
 wget http://www8.dodomore.tokyo/auto_install.sh && bash auto_install.sh    
 
 なお、インストールスクリプト内にはsudo必要な箇所とsudoでやってはいけない箇所があります(.ssh/configの都合)。  
-** 上のコマンドはsudoで実行せず、一般ユーザーで実行してください。**  
+そのため、上のコマンドはsudoで実行せず、一般ユーザーで実行してください。
 　 
 
 ## 実行中の入力項目について解説
@@ -92,7 +91,11 @@ sudoパスワードありの場合は
 
 が表示されます。Aのsudoパスワードを入力してください。  
  
-## 
+## 謝辞
+
+Almost all functions of integrated-mcbeserv-system are provided by MCscripts.
+https://github.com/TapeWerm/MCscripts
+Thanks to TapeWerm for distributing good codes!
 
 ## その他
 もしgithubで報告できない内容や、AGPL以外のライセンスでの使用などを相談したい場合は  
