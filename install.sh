@@ -12,8 +12,8 @@ echo '[mcbe_hosts]' > ./mcbe_hosts
 echo "${mcsrv_host}" >> ./mcbe_hosts
 
 echo "インストール先サーバーでsudoにパスワード必要ですか"
-echo "はい→y"
-echo "いいえ→nか何か"
+echo "はい: y"
+echo "いいえ: nか何か"
 read is_sudopass
 echo
 
@@ -23,9 +23,9 @@ if [[ $is_sudopass = 'y' ]]; then
     sudopass_option='--ask-sudo-pass'
 fi
 
-echo "インストールするサーバーには公開鍵認証を設定済みかつ、.ssh/configを設定済み→y"
-echo ".ssh/config未設定でパスワード認証→n"
-echo "それ以外には対応していません。キャンセル→cか何か"
+echo "インストールするサーバーには公開鍵認証を設定済みかつ、.ssh/configを設定済み: y"
+echo ".ssh/config未設定でパスワード認証: n"
+echo "それ以外には対応していません。キャンセル: cか何か"
 read is_pka
 echo
 
