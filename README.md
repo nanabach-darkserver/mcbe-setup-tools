@@ -106,7 +106,7 @@ https://github.com/TapeWerm/MCscripts
 Thanks to TapeWerm for distributing good codes!  
 
 # その他
-もしgithubで報告できない内容や、AGPL以外のライセンスでの使用などを相談したい場合は  
+もしgithubで報告できない内容は  
 Twitter: @nanabach5  
 にご連絡ください。  
 
