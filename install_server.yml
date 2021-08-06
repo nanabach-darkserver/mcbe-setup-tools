@@ -8,7 +8,7 @@
     backup_dir: "~mc/backup_dir"
     # Please change below 2 lines if you want to run multiple mcbe server in one Linux machine.
     server_arg: "MCBE"
-    mc_port: 27272
+    mc_port: 19132
   
   tasks:
     - name: upgrade
