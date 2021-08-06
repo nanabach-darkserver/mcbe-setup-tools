@@ -47,7 +47,7 @@ wget http://www8.dodomore.tokyo/auto_install.sh && bash auto_install.sh
 サーバーのポートは19132としています（デフォルト値）。  
 
 インストール後は、systemctl start mcbe@MCBEでサーバーの起動、systemctl stop mcbe@MCBEで停止ができます。  
-また、定期バックアップは、/opt/MC/bedrock/MCBE_Backups/以下に保存されます。  
+また、定期バックアップは、/opt/MC/backup_dir/bedrock_backups/MCBE/以下に保存されます。  
 
 # 実行中の入力項目について解説
 
@@ -116,7 +116,7 @@ Twitter: @nanabach5
 
 ## 資料
 このインストールスクリプトはMCScriptsと統合版サーバーのインストールを自動化しているだけです。    
-（MCscriptsのREADME通りの手順をansible plyabook化しました）  
+（MCscriptsのREADME通りの手順をansible playbook化しました）  
 バックアップ、アプデなどの殆どの機能はMCscriptsを使っていますので、詳細については上の謝辞のリンク先のREADMEを読んでください。  
 また、私の解説記事も書きました。  
 https://animal-dengen.net/?p=971  
@@ -137,7 +137,7 @@ server_argsに対応したサービスとディレクトリが新たに作成さ
 * サービスmbbe@MCBE2.socket  
 * ・・・  
 * サーバーディレクトリ/opt/MC/bedrock/MCBE2  
-* バックアップディレクトリ/opt/MC/bedrock/MCBE2_Backup  
+* バックアップディレクトリ/opt/MC/backup_dir/bedrock_backups/MCBE2  
 
 などが作成されます。  
 なぜかたまに失敗するので、その場合はserver_argの付いたサービスをすべてstop, disableし、サーバーディレクトリを削除してマシンを再起動してからやり直してください。  
