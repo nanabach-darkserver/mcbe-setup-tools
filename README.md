@@ -53,6 +53,9 @@ ssh localhostが可能であれば、Aでこのスクリプトを実行しても
 インストール後は、systemctl start mcbe@MCBEでサーバーの起動、systemctl stop mcbe@MCBEで停止ができます。  
 また、定期バックアップは、/opt/MC/backup_dir/bedrock_backups/MCBE/以下に保存されます。  
 
+最初の選択肢でインストールとアップデートが選べます。基本的なインストールには0を、mcscriptsのアップデートをする場合は1を選んでください。  
+どちらも複数回実行して問題を起こすことはありませんので、途中で失敗したら再度実行してください。  
+
 ## 1の方法について
 
 Bで対象ホストを自分で設定して、ansible-playbookコマンドでinstall-server.ymlを使用してください。 
@@ -76,7 +79,7 @@ install.shを自動的にダウンロードして実行します。
 細かく設定を変更したい場合は2か3の方法を選択し、実行前にinstall_server.ymlのvarsを書き換えてください。  
 
 - mc_home・・・Minecraftや各種管理サービスを動かすユーザーのホームディレクトリです
-- backup_dir・・・Minecraftのデータのバックアップ先です。~mcはmc_homeです。
+- backup_dir・・・Minecraftのデータのバックアップ先です。~mcはmc_homeです（デフォルト）。可能なら別のHDDを指定すると安全です。
 
 他の項目は下の「同じマシンで複数のサーバーを動かす場合」を読んでください。  
 
