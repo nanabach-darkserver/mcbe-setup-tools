@@ -26,7 +26,8 @@ fi
 echo '-----------------------------------------'
 echo "2. このスクリプトの実行に必要ソフトウェアをインストールします"
 echo "（ここでpasswordを要求された場合は、このスクリプトを実行中のマシンのpasswordです（ここだけ））"
-sudo apt install sshpass python3-pip
+sudo apt -y remove ansible
+sudo apt -y install sshpass python3-pip
 sudo pip3 install ansible
 
 echo '-----------------------------------------'
