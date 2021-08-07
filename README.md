@@ -137,7 +137,12 @@ sudoパスワードありの場合は
 > SUDO password[defaults to SSH password]:   
 
 が表示されます。先程指定したユーザーのsudoパスワードを入力してください。  
- 
+
+# トラブルシューティング
+
+fatal: [xx.xx.xx.xx]: FAILED! => {"msg": "Using a SSH password instead  of a key is not possible because Host Key checking is enabled and  sshpass does not support this.  Please add this host's fingerprint to  your known_hosts file to manage this host."}  
+のようなエラーが起きた場合は、一度インストールするサーバーに手動でSSH接続できることを試してからやり直してください。
+
 # 謝辞
 
 Almost all functions of integrated-mcbeserv-system are provided by MCscripts.  
