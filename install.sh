@@ -59,6 +59,8 @@ echo ".ssh/config未設定でパスワード認証: n"
 echo "キャンセル: cか何か"
 read is_pka
 echo
+echo '-----------------------------------------'
+echo 'become passが要求されたら、マイクラサーバーのsudoパスワードを入力'
 
 if [[ $is_pka = 'y' ]]; then
     ansible-playbook -i ./mcbe_hosts ${sudopass_option} ${playbook}
