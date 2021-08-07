@@ -1,5 +1,5 @@
 echo '-----------------------------------------'
-echo "統合版サーバーのインストール前に以下の規約やプライバシーポリシーに同意する必要があります。"
+echo "1. 統合版サーバーのインストール前に以下の規約やプライバシーポリシーに同意する必要があります。"
 echo "https://account.mojang.com/terms"
 echo "https://privacy.microsoft.com/ja-jp/privacystatement"
 echo
@@ -12,12 +12,13 @@ if [[ $is_agree != 'y' ]]; then
 fi
 
 echo '-----------------------------------------'
-echo "必要ソフトウェアをインストールします"
+echo "2. このスクリプトの実行に必要ソフトウェアをインストールします"
+echo "（ここでpasswordを要求された場合は、このスクリプトを実行中のマシンのpasswordです（ここだけ））"
 sudo apt install ansible sshpass
 
 echo '-----------------------------------------'
-echo "インストールするサーバーのIPもしくはドメインを入力"
-echo "（ssh/configを設定済みの場合はHostNameを入力）"
+echo "3. インストールするサーバーのIPもしくはドメインを入力"
+echo "（.ssh/configで公開鍵認証を設定済みの場合はHostNameを入力）"
 read mcsrv_host
 echo
 
@@ -26,7 +27,7 @@ echo '[mcbe_hosts]' > ./mcbe_hosts
 echo "${mcsrv_host}" >> ./mcbe_hosts
 
 echo '-----------------------------------------'
-echo "インストール先サーバーでsudoにパスワード必要ですか"
+echo "4. インストール先サーバーでsudoにパスワード必要ですか"
 echo "はい: y"
 echo "いいえ: nか何か"
 read is_sudopass
@@ -38,7 +39,7 @@ if [[ $is_sudopass = 'y' ]]; then
 fi
 
 echo '-----------------------------------------'
-echo "SSHアクセス方法の選択"
+echo "5. SSHアクセス方法の選択"
 echo "公開鍵認証でSSHログイン（.ssh/configを設定済み）: y"
 echo ".ssh/config未設定でパスワード認証: n"
 echo "キャンセル: cか何か"
@@ -50,7 +51,7 @@ if [[ $is_pka = 'y' ]]; then
     echo '-----------------------------------------'
     echo "failedが0なら成功です。unreachableが0でない場合はユーザー名やホスト名、パスワードが間違えています"
 elif [[ $is_pka = 'n' ]]; then
-    echo 'ユーザー名を入力してください'
+    echo '6. ユーザー名を入力してください'
     read login_username
     ansible-playbook -i ./mcbe_hosts -u ${login_username} -k install_server.yml ${sudopass_option}
     echo '-----------------------------------------'
