@@ -23,9 +23,7 @@
           - curl
           - procps
           - socat
-          - wget
           - zip
-          - sudo
 
     - name: install mcscripts
       git:
@@ -87,10 +85,10 @@
       with_items: "{{mc_scripts.files}}"
 
     - name: check update and get server
-      shell: su mc -s /bin/bash -c bash -c 'echo y | ~mc/MCBEgetZIP.sh'
+      shell: su mc -s /bin/bash -c bash -c 'echo y | ~mc/mcbe_getzip.sh'
 
     - name: update server(if not exist, install server)
-      shell:  "~mc/MCBEautoUpdate.sh ~mc/bedrock/{{server_arg}}"
+      shell:  "~mc/mcbe_autoupdate.sh ~mc/bedrock/{{server_arg}}"
       register: result
       failed_when:
         - result.failed == true
