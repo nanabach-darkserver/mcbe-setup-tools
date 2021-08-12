@@ -52,3 +52,6 @@ Thumbs.db
 
 mcbe_hosts
 *.retry
+
+tmp/*
+downloads/*

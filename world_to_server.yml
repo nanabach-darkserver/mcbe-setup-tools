@@ -1,0 +1,34 @@
+---
+- 
+  hosts: mcbe_hosts
+  become: true
+  become_method: sudo
+  vars:
+    mc_home: "/opt/MC"
+    server_arg: "MCBE"
+    zip_file: ../01_01-01.zip
+    backup: true
+  
+  tasks:
+    - name: backup current world data
+      systemd:
+        name: "mcbe-backup@{{server_arg}}.service"
+        state: started
+      when: backup
+
+    - name: cleanup world data
+      file:
+        state: absent
+        path: "{{mc_home}}/bedrock/{{server_arg}}/worlds/Bedrock level"
+
+    - name: upload and archive world data
+      unarchive:
+        owner: mc
+        group: nogroup
+        src: "{{zip_file}}"
+        dest: "{{mc_home}}/bedrock/{{server_arg}}/worlds"
+
+    - name: reload world
+      systemd:
+        name: "mcbe@{{server_arg}}.service"
+        state: restarted
