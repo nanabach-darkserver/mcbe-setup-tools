@@ -1,9 +1,12 @@
 # 概要 #
+以下の4つのファイルの使い方の紹介です。
 
-1. 統合版マインクラフトとMcscriptsのインストール用playbook(install_server.yml)  
+1. ***統合版マインクラフトとMcscriptsのインストール用playbook(install_server.yml)***  
 2. Mcscriptsのアップデート用playbook(update_mcscripts.yml)  
 3. バックアップしたワールドデータ(zipファイル)のサーバーへのデプロイスクリプト(world_to_server.sh)
 4. 現在のワールドのダウンロードスクリプト(world_to_local.sh)
+
+2~4は1がインストールされていることを前提としています。
 
 統合版サーバーのインストール前に以下の規約やプライバシーポリシーに同意する必要があります。  
 必ずチェックしてください。  
@@ -14,9 +17,9 @@ https://privacy.microsoft.com/ja-jp/privacystatement
 # 動作環境（インストールされるサーバー） ##
 
 * Ubuntu 18以降
-* WSL環境不可(v2含む)。
+* WSL環境は不可(WSL2含む)。Dockerも不可。それ以外なら大丈夫。
 
-# How To Use
+# 各ファイルの使い方
 
 ## 統合版マインクラフトとMcscriptsのインストール(install_server.yml)
 
@@ -26,6 +29,8 @@ https://privacy.microsoft.com/ja-jp/privacystatement
 - マインクラフトサーバーのservice化
 - マインクラフトサーバーのワールドデータの定期バックアップ
 - マインクラフトサーバーの自動アップデート
+
+なお、これら機能はhttps://github.com/TapeWerm/MCscripts を使用しています。
 
 ### configuration
 必要あればplaybook内の以下の項目をインストール前に変更してください。特に変えずとも動きます。  
@@ -58,12 +63,12 @@ Mcscriptsのアップデートを行います。
 
 ### 概要 
 Mcscriptsでバックアップされたワールドデータのzip（ローカルに存在）をサーバーにデプロイするスクリプトです。  
-mcbe-backup@.serviceを実行してバックアップしてからサーバーデータをコピーします（下記のbackupの項目で変更可能）。  
+を実行して、サーバー上で現在稼働中のワールドデータをバックアップしてからサーバーデータをコピーしてください（下記のbackupの項目で変更可能）。 
 
 ### configuration
 
 - zip_file: ローカルのワールドデータzipのパスを指定
-- backup: 現在のサーバーで動いているワールドデータをバックアップするか否か
+- backup: 現在のサーバーで動いているワールドデータをバックアップするか否か(バックアップにはmcbe-backup@.serviceを使用)
 
 その他は上のインストールのconfigurationと同じです。変更している場合はこちらのmc_homeやserver_argも書き換えてください。  
 
